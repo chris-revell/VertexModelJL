@@ -77,7 +77,7 @@ using Visualise
     vertexEdges       = zeros(Int64,nVerts,3)        # 2D matrix containing the labels of all 3 edges around each vertex
     vertexCells       = zeros(Int64,nVerts,3)        # 2D matrix containing the labels of all 2-3 cells around each vertex
     F                 = zeros(nVerts,nCells,2)       # 3D array containing force vectors on vertex k from cell i, Fᵢₖ
-    Fexternal         = zeros(nVerts,2)       # 3D array containing force vectors on vertex k from cell i, Fᵢₖ
+    Fexternal         = zeros(nVerts,2)              # 3D array containing force vectors on vertex k from cell i, Fᵢₖ
 
     # Create output directory in which to store results and parameters
     folderName = createRunDirectory(nCells,nEdges,nVerts,gamma,lamda,tStar,realTimetMax,tMax,dt,outputInterval,preferredPerimeter,preferredArea,A,B,R)
