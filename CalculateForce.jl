@@ -18,6 +18,7 @@ using LinearAlgebra
     fill!(Fexternal,0.0)
 
     # Internal forces
+    # NB This iteration could be improved to better leverage sparse arrays
     for k=1:nVerts
         for i=1:nCells
             for j=1:nEdges
@@ -25,7 +26,6 @@ using LinearAlgebra
             end
         end
     end
-
 
     # External pressure
     for k=1:nVerts
