@@ -21,6 +21,7 @@ using CalculateForce
 using InitialHexagons
 using Visualise
 using T1Transitions
+using VisualiseForce
 
 @inline @views function simulate(initialSystem)
 
@@ -112,6 +113,7 @@ using T1Transitions
         end
         if t%outputInterval<dt
             visualise(A,Ā,B̄,R,C,F,cellPositions,edgeTangents,edgeMidpoints,nEdges,nVerts,nCells,outputCount,folderName,ϵ,boundaryVertices,vertexEdges)
+            visualiseForce(A,Ā,B̄,R,C,F,outputCount,folderName,ϵ,nVerts)
             outputCount+=1
             println("$outputCount/10")
         end
@@ -143,6 +145,7 @@ using T1Transitions
     end
 
     run(`convert -delay 0 -loop 0 output/$folderName/plot"*".png output/$folderName/animated.gif`)
+    run(`convert -delay 0 -loop 0 output/$folderName/forceplot"*".png output/$folderName/animatedforce.gif`)
 
 end
 
